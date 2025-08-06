@@ -25,9 +25,10 @@ export const config = {
         requestedSessionTimeout: 60000,
         connectionStrategy: {
           initialDelay: 1000,
-          maxRetry: 5,
-          maxDelay: 5000,
+          maxRetry: 1,
+          maxDelay: 2000,
         },
+        connectionTimeout: 5000,
       },
       endpointUrl: 'opc.tcp://10.48.216.14:4840',
       nodesToBrowse: ['ns=3;s="DB_OPC"'],

@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { OPCUAClient } from 'node-opcua-client';
 import { config } from './config.js';
 import { fetchFromOcp } from './opc.js';
@@ -17,7 +18,7 @@ async function fetchAndInsert() {
         client,
         endpointUrl: ocp.endpointUrl,
         nodesToBrowse: ocp.nodesToBrowse as unknown as string[],
-        log: () => {},
+        log: (message: string) => console.log(`[OPC] ${message}`),
       });
 
       if (config.debug.saveJson) {
